@@ -1,0 +1,32 @@
+C      parameter (m=50000, mmol=370, mres=1000, mc=160, mh=100, mcon=12,
+C     $		 mext=50, mnosym=7)
+      parameter (m=150000, mmol=1100, mres=1000, mc=160, mh=100, 
+     $		 mcon=12, mext=50, mnosym=7)
+C      parameter (m=2000, mmol=100, mres=100, mc=160, mh=100, mcon=12,
+C     $		 mext=50, mnosym=7)
+
+      real*8 x(m),y(m),z(m),q(m),qres(mres,mmol)
+      integer 	nares(mres,mmol),iares(mres,mmol),jares(mres,mmol),
+     $		molend(mmol),molind(mmol),nres(mmol), nosym(mnosym),
+     $		nat(m),ares(m),amol(m),
+     $		atnumb(m),ncon(m),icon(mcon,m)
+      logical	  readhin,hisc2mg,hissel,hsymres
+      character*1 scon(mcon,m)
+      character*2 ats(m),attype(m)
+      character*2 atsym(-1:103)
+      character*5 atname(m)
+      character*6 flag(m)
+      character*12 resname(mres,mmol)
+      character*(mc) header(mh)
+      character*15 param(mext)
+
+      common /hinc/ resname,header,ats,scon,atname,attype,flag,param
+      common /hinx/ x,y,z,q,qtot,qres
+      common /hinn/ nat,ares,amol,atnumb,ncon,icon
+      common /hini/ nares,iares,jares,nres,molend,molind,nmol,natom,
+     $		    nhead,nsel,lstpro
+      common /hinc3/ xc3cen,yc3cen,c3ca,c3cb,nnosym,nosym
+      common /atsymb/ atsym
+      common /const/ au,au2ev
+
+C      external	  readhin,hisc2mg,hissel
